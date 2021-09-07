@@ -1,4 +1,4 @@
-### Collect Form Values in Netlify
+### Collecting Form Values in Netlify
 
 The following has to be added in the form and input properties in order to enable Netlify form collection
 
@@ -14,3 +14,4 @@ The following has to be added in the form and input properties in order to enabl
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="mdx-contact" />
 ```
+
