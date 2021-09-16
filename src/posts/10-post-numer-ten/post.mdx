@@ -8,13 +8,9 @@ category: gatsby
 readTime: 34
 ---
 
-
 import { Link } from 'gatsby'
 import { FiInfo } from 'react-icons/fi'
-import {Counter, LikeButton} from '../../components/Complete' // import from /components/Complete/index.js
-
-
-
+import { Counter, LikeButton } from '../../components/Complete' // import from /components/Complete/index.js
 
 ## my first mdx file
 
@@ -26,7 +22,6 @@ interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
 Cicero are also reproduced in their exact original form, accompanied by English versions
 from the 1914 translation by H. Rackham.
 
-
 <h2>code block</h2>
 <div className="code">
 
@@ -36,8 +31,6 @@ const lastName = 'DOGE'
 ```
 
 </div>
-
-
 
 <div className="nice-text">
   <FiInfo className="nice-text-icon" />
@@ -54,9 +47,9 @@ const lastName = 'DOGE'
 <Counter />
 
 ```jsx
-import React from "react"
-import styled from "styled-components"
-import { AiOutlineLike } from "react-icons/ai"
+import React from 'react'
+import styled from 'styled-components'
+import { AiOutlineLike } from 'react-icons/ai'
 const LikeButton = () => {
   const [value, setValue] = React.useState(0)
   return (
@@ -76,10 +69,11 @@ const LikeButton = () => {
   )
 }
 ```
+
 <LikeButton />
+
+![niceimage](./images/gatsby-1.png)
 
 <Link to="/posts" className="btn center-btn">
   all posts
 </Link>
-
-

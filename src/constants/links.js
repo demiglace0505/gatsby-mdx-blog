@@ -12,6 +12,7 @@ const Links = ({ styleClass, children }) => {
         <Link to="/posts" className="page-link">
           Posts
         </Link>
+        {/* Render the categories in children */}
         {children}
       </li>
       <li>

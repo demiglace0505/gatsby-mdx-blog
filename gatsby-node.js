@@ -12,11 +12,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      
+      categories: allMdx {
+        distinct(field: frontmatter___category)
+      }
     }
   `)
 
-  result.data.allMdx.nodes.forEach((node) => {
+  result.data.allMdx.nodes.forEach(node => {
     const slug = node.frontmatter.slug
     createPage({
       path: `/posts/${slug}`,
@@ -27,5 +29,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  
+  result.data.categories.distinct.forEach(category => {
+    createPage({
+      path: `/${category}`,
+      component: path.resolve(`src/templates/category-template.js`),
+      context: {
+        category,
+      },
+    })
+  })
 }

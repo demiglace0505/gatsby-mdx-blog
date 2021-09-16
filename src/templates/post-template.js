@@ -12,7 +12,7 @@ const PostTemplate = ({ data }) => {
   const {
     mdx: {
       body,
-      frontmatter: { title, category, image, date },
+      frontmatter: { title, category, image, date, embeddedImages },
     },
   } = data
   return (
@@ -20,18 +20,20 @@ const PostTemplate = ({ data }) => {
       <Hero />
       <Wrapper>
         {/* post info */}
-          <article>
-            <GatsbyImage image={getImage(image)} alt={title} className="main-img" />
-            <div className="post-info">
-              <span>{category}</span>
-              <h2>{title}</h2>
-              <p>{date}</p>
-              <div className="underline"></div>
-            </div>
-            <MDXRenderer>
-              {body}
-            </MDXRenderer>
-          </article>
+        <article>
+          <GatsbyImage
+            image={getImage(image)}
+            alt={title}
+            className="main-img"
+          />
+          <div className="post-info">
+            <span>{category}</span>
+            <h2>{title}</h2>
+            <p>{date}</p>
+            <div className="underline"></div>
+          </div>
+          <MDXRenderer embeddedImages={embeddedImages}>{body}</MDXRenderer>
+        </article>
         {/* banner */}
         <article>
           <Banner />
@@ -50,6 +52,11 @@ export const query = graphql`
         slug
         title
         readTime
+        embeddedImages {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         image {
           childImageSharp {
             gatsbyImageData
